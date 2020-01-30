@@ -14,7 +14,7 @@ class App extends React.Component<IStore> {
             <div>
                 <p>Howdy Yall!</p>
                 <p>{this.props.testObject.name}</p>
-                <button onClick={() => this.onClickButton()}>Click this</button>
+                <button className="button" onClick={() => this.onClickButton()}>Click this</button>
             </div>
         );
     }
