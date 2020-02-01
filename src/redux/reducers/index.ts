@@ -1,5 +1,5 @@
-import { combineReducers } from "redux";
-import testReducerMethod from "./TestReducer";
+import { combineReducers } from 'redux';
+import testReducerMethod from './TestReducer';
 
 const CombinedReducers = combineReducers({ testObject: testReducerMethod });
 

@@ -1,40 +1,37 @@
-import { createStore, applyMiddleware, compose } from "redux";
-import CombinedReducers from "./reducers/index";
+import { createStore, compose } from 'redux';
+import CombinedReducers from './reducers/index';
 
-export interface ITestObject {
-    name : string
+export interface TestObject {
+  name: string;
 }
 
-export interface IStoreDispatch {
-    TestAction(name : string);
+export interface StoreDispatch {
+  TestAction(name: string);
 }
 
-export interface IStoreModel {
-    testObject : ITestObject;
+export interface StoreModel {
+  testObject: TestObject;
 }
 
 //combined interface for easy include in React Components
-export interface IStore extends IStoreDispatch, IStoreModel {
+export interface Store extends StoreDispatch, StoreModel {}
 
-}
-
-const defaultModel : IStoreModel = {
-    testObject: {
-        name: ""
-    }
+const defaultModel: StoreModel = {
+  testObject: {
+    name: '',
+  },
 };
 
-const enhancers = compose(
-    window["devToolsExtension"] ? window["devToolsExtension"]() : f => f
-);
-
+/* eslint-disable */
+const enhancers = compose(window['devToolsExtension'] ? window['devToolsExtension']() : f => f);
 const store = createStore(CombinedReducers, defaultModel, enhancers);
+/* eslint-enable */
 
-if(module["hot"]) {
-    module["hot"].accept("./reducers", () => {
-        const nextRootReducer = require("./reducers/index").default;
-        store.replaceReducer(nextRootReducer);
-    });
+if (module['hot']) {
+  module['hot'].accept('./reducers', () => {
+    const nextRootReducer = require('./reducers/index').default;
+    store.replaceReducer(nextRootReducer);
+  });
 }
 
 export default store;

@@ -1,11 +1,8 @@
-import "../scss/main.scss";
+import '../scss/main.scss';
 
-import * as React from "react";
-import * as ReactDOM from "react-dom";
+import * as React from 'react';
+import * as ReactDOM from 'react-dom';
 
-import ReduxRootComponent from "./redux/ReduxRootComponent";
+import ReduxRootComponent from './redux/ReduxRootComponent';
 
-ReactDOM.render(
-    <ReduxRootComponent/>,
-    document.getElementById("app")
-);
+ReactDOM.render(<ReduxRootComponent />, document.getElementById('app'));
